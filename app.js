@@ -13,7 +13,7 @@ const projectHandler = (event, action) => {
     const branch = event.payload.ref
     if (projects.includes(project)) {
         console.log(new Date(), `Received a ${action} event for ${project} to ${branch}`)
-        shell.exec(`sh ./projects/${project}.sh`, (code, stdout, stderr) => {
+        shell.exec(`sh /home/${project}.sh`, (code, stdout, stderr) => {
             console.log(new Date(), 'Exit code:', code)
                 // console.log(new Date(), 'Program output:', stdout)
             console.log(new Date(), '执行完毕！错误信息：？', stderr)
