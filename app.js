@@ -1,6 +1,6 @@
 const http = require('http')
 const shell = require('shelljs')
-const createHandler = require('./github-webhook-handler')
+const createHandler = require('github-webhook-handler')
 const handler = createHandler({ path: '/webhook', secret: 'xiedu' })
     // 上面的 secret 保持和 GitHub 后台设置的一致
 
@@ -33,6 +33,7 @@ http.createServer((req, res) => {
         // console.log('Exit code:', code)
         // console.log('Program output:', stdout)
         // console.log('Program stderr:', stderr, stderr === '', !!stderr)
+
     })
 })
 
