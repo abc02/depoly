@@ -6,12 +6,12 @@ const handler = createHandler({ path: '/webhook', secret: 'xiedu' })
 
 const port = 9988
 // const projects = ['jquery-aboo']
-
+ 
 const projectHandler = (event, action) => {
     const project = event.payload.repository.name // 提交的仓库名字
     const branch = event.payload.ref
     if(branch.search('master') > -1) {
-        shell.exec(`sh /home/${project}/${project}.sh`, (code, stdout, stderr) => {
+        shell.exec(`sh /home/page/${project}/${project}.sh`, (code, stdout, stderr) => {
             console.log(new Date(), 'Exit code:', code)
                 // console.log(new Date(), 'Program output:', stdout)
             console.log(new Date(), '执行完毕！错误信息：？', stderr)
